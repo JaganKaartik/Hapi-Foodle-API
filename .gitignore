@@ -1,0 +1,11 @@
+# dependencies
+/node_modules
+/.pnp
+/client/node_modules
+/misc
+.pnp.js
+ngrok
+test.js
+.DS_Store
+.env*
+prod.json
