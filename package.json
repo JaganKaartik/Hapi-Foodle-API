@@ -1,27 +1,18 @@
 {
-  "name": "Foodle",
+  "name": "Foodle-Server",
   "version": "2.0.0",
-  "description": "A Simple Food based CRUD API ",
-  "main": "index.js",
-  "repository": "https://github.com/JaganKaartik/Foodle",
-  "author": "JaganKaartik <kaartikjagan@gmail.com>",
+  "description": "A simple CRUD API ",
+  "main": "server.js",
+  "repository": "",
+  "author": "JaganKaartik",
   "license": "MIT",
   "scripts": {
-    "start": "node api.js",
-    "dev": "nodemon api",
-    "client-install": "cd client && yarn install",
-    "install": "yarn install && yarn  run client-install",
-    "client": "cd client && nodemon index",
-    "server": "cd server && nodemon index",
-    "foodle": "concurrently -n 'server,client' -c 'cyan,magenta' \"yarn run server\" \"yarn run client\""
+    "start": "node server"
   },
   "dependencies": {
     "@hapi/bell": "^12.1.0",
     "@hapi/cookie": "^11.0.1",
     "@hapi/hapi": "^20.0.0",
-    "bcrypt": "^5.0.0",
-    "concurrently": "^5.3.0",
-    "hapi-cors": "^1.0.3",
     "joi": "^17.2.1",
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",
