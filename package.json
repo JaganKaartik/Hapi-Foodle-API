@@ -7,12 +7,14 @@
   "author": "JaganKaartik",
   "license": "MIT",
   "scripts": {
-    "start": "node server"
+    "start": "node server",
+    "dev": "nodemon server"
   },
   "dependencies": {
     "@hapi/bell": "^12.1.0",
     "@hapi/cookie": "^11.0.1",
     "@hapi/hapi": "^20.0.0",
+    "hapi-cors": "^1.0.3",
     "joi": "^17.2.1",
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",

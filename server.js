@@ -5,11 +5,23 @@ const routes = require("./routes")
 
 const init = async () => {
   const server = Hapi.server({
-    "host": "localhost",
-    "port": 5000,
-    "routes": {
-      "cors": {
-        "origin": ["*"]
+    host: "localhost",
+    port: 5000,
+    routes: {
+      cors: {
+        origin: ['*'],
+        headers: [
+          "Access-Control-Allow-Headers",
+          "Access-Control-Allow-Origin",
+          "Accept",
+          "Authorization",
+          "Content-Type",
+          "If-None-Match",
+          "Accept-language"
+        ],
+        additionalHeaders: [
+          "Access-Control-Allow-Headers: Origin, Content-Type, x-ms-request-id , Authorization"
+        ],
       }
     }
   })
