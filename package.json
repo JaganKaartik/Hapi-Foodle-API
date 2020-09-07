@@ -1,0 +1,30 @@
+{
+  "name": "hapi-rest-api",
+  "version": "1.0.0",
+  "description": "Hapi-REST-API",
+  "main": "index.js",
+  "repository": "",
+  "author": "JaganKaartik <kaartikjagan@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prodtest": "NODE_ENV=prodtest cd server && nodemon index",
+    "dev": "NODE_ENV=development cd server && nodemon index",
+    "start": "node api.js"
+  },
+  "dependencies": {
+    "@hapi/bell": "^12.1.0",
+    "@hapi/cookie": "^11.0.1",
+    "@hapi/hapi": "^20.0.0",
+    "bcrypt": "^5.0.0",
+    "concurrently": "^5.3.0",
+    "hapi-cors": "^1.0.3",
+    "joi": "^17.2.1",
+    "pg": "^8.3.3",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.4"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4"
+  }
+}
