@@ -1,10 +1,10 @@
 const { Users } = require('../models')
 
 if (process.env.NODE_ENV != 'development') {
-    require('dotenv').config({ path: '../config/.env.test' })
+    require('dotenv').config({ path: './config/.env.test' })
 }
 else {
-    require('dotenv').config({ path: '../config/.env.dev' })
+    require('dotenv').config({ path: './config/.env.dev' })
 }
 
 module.exports.oauthController = async (request, h) => {

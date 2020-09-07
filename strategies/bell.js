@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '../config/.env' });
+require('dotenv').config({ path: './config/.env' });
 
 module.exports.GithubStrategy = {
   provider: "github",

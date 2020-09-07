@@ -7,8 +7,8 @@
   "author": "JaganKaartik <kaartikjagan@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "prodtest": "NODE_ENV=prodtest cd server && nodemon index",
-    "dev": "NODE_ENV=development cd server && nodemon index",
+    "prodtest": "NODE_ENV=prodtest nodemon index",
+    "dev": "NODE_ENV=development nodemon index",
     "start": "node api.js"
   },
   "dependencies": {
