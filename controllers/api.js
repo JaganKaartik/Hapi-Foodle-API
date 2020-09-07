@@ -9,27 +9,6 @@ const displayUser = async (request, h) => {
     return rep;
 }
 
-// const login = async (request, h) => {
-//     if (request.method === 'post') {
-//         user = request.payload.username
-//         pass = request.payload.password
-
-//         console.log(user);
-//         console.log(pass)
-//         const rep = await Users.findAll({ where: { Name: user, Password: pass } })
-//             .then((result) => {
-//                 console.log('here')
-//                 request.cookieAuth.set({ id: result[0].ID, name: result[0].Name })
-//                 console.log('Successfully Authenticated')
-//                 return { "message": "success" }
-//             })
-//             .catch((err) => { return { "message": "error" } })
-//         return rep;
-//     } else {
-//         return h.redirect('/')
-//     }
-// }
-
 const displayAllDish = async (request, h) => {
     const rep = await Dishes.findAll().then((result) => {
         return result

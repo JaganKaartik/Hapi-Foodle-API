@@ -3,11 +3,11 @@ const Sequelize = require("sequelize");
 let sequelize;
 
 if (process.env.NODE_ENV == 'production') {
-  require('dotenv').config({ path: process.cwd() + '/config/env/.env.prod' });
+  require('dotenv').config({ path: '../config/.env.prod' });
   sequelize = new Sequelize(process.env.PROD_DB_INFO)
 }
 else {
-  require('dotenv').config({ path: process.cwd() + '/config/env/.env.dev' });
+  require('dotenv').config({ path: '../config/.env.test' });
   sequelize = new Sequelize(process.env.DB, process.env.POSTGRES_ID, process.env.POSTGRES_KEY, {
     dialect: 'postgres'
   });
@@ -16,16 +16,15 @@ else {
 const Users = sequelize.define(
   "Users",
   {
-    id: {
+    oauthid: {
       type: Sequelize.INTEGER,
-      primaryKey: true
     },
-    type: {
+    displayname: {
       type: Sequelize.STRING
     },
-    password: {
+    authprovider: {
       type: Sequelize.STRING
-    }
+    },
   },
   {
     timestamps: false

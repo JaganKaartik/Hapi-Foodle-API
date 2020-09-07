@@ -1,4 +1,4 @@
-require('dotenv').config({ path: process.cwd() + '/config/env/.env' });
+require('dotenv').config({ path: '../config/.env' });
 
 module.exports.GithubStrategy = {
   provider: "github",
@@ -8,17 +8,17 @@ module.exports.GithubStrategy = {
   isSecure: false
 }
 
-// module.exports.GoogleStrategy = {
-//   provider: "google",
-//   password: process.env.RANDOM_PASSWORD_STRING,
-//   clientId: process.env.GOOGLE_CLIENT_ID,
-//   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-//   isSecure: false
-// }
+module.exports.GoogleStrategy = {
+  provider: "google",
+  password: process.env.RANDOM_PASSWORD_STRING,
+  clientId: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  isSecure: false
+}
 
 module.exports.CookieStrategy = {
   cookie: {
-    name: 'foodle-cookie',
+    name: 'foodle',
     password: process.env.COOKIE_PASSWORD,
     isSecure: false,
     ttl: 60 * 60 * 24 * 1000

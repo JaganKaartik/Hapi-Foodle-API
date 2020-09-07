@@ -2,10 +2,12 @@
 
 create table "Users"
 (
-	ID varchar(10),
-	Type varchar(150),
-	Password varchar(150)
+	id varchar(100),
+	displayname varchar(150),
+	authprovider varchar(50)
 )
+
+ALTER TABLE "Users" ADD COLUMN rid SERIAL PRIMARY KEY;
 
 create table "Dishes"
 (
@@ -38,26 +40,3 @@ insert into "Dishes" values
 ('Macaronni','Pasta','$7.50'),
 ('Hot Dog','Snacks','$1.50'),
 ('Baguette','Bread','$3.55')
-
-
--- [GET] Retrieving Data --
-
-select * from "Users" where "ID" = '1'
-select * from "Dishes" where "ID" = '1'
-
--- [PUT] Updating Data --
-
-update  "Dishes"  set "Name" = 'Chocolate Bread' where "ID" = '4'
-
--- [DELETE] Deleting Data  --
-
-delete "Dishes" 
-delete from "Dishes" where "ID" = 'value'
-
-
--- Users DB --
-
-select * from "Users"
-
-insert into "Users" values (1,'Admin','admin123'),(2,'Jagan','jagan123'),(3,'John','john123')
-

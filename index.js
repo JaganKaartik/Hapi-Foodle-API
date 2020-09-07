@@ -1,7 +1,8 @@
 const Hapi = require('@hapi/hapi')
-const authConfig = require("./config/AuthConfig")
-const plugs = require("./config/Plugins")
-const routes = require("./routes")
+const strategy = require("./strategies/bell")
+const plugs = require("./strategies/plugin")
+const ApiRoutes = require("./routes/api")
+const AuthRoutes = require("./routes/oauth")
 
 const init = async () => {
   const server = Hapi.server({
@@ -22,17 +23,19 @@ const init = async () => {
         additionalHeaders: [
           "Access-Control-Allow-Headers: Origin, Content-Type, x-ms-request-id , Authorization"
         ],
+        credentials: true
       }
     }
   })
 
   await server.register(plugs);
 
-  server.auth.strategy('github', 'bell', authConfig.GithubStrategy);
-  // server.auth.strategy('google', 'bell', authConfig.GoogleStrategy);
-  server.auth.strategy('session', 'cookie', authConfig.CookieStrategy);
+  server.auth.strategy('github', 'bell', strategy.GithubStrategy);
+  server.auth.strategy('google', 'bell', strategy.GoogleStrategy);
+  server.auth.strategy('session', 'cookie', strategy.CookieStrategy);
 
-  server.route(routes)
+  server.route(AuthRoutes)
+  server.route(ApiRoutes)
 
   await server.start()
   console.log(`Server running`)
