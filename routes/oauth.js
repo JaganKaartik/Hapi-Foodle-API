@@ -43,7 +43,7 @@ module.exports = [
     },
     {
         method: 'GET',
-        path: '/oauth/logout',
+        path: '/logout',
         config: {
             auth: false,
             handler: (request, h) => {

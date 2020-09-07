@@ -3,11 +3,11 @@ const Sequelize = require("sequelize");
 let sequelize;
 
 if (process.env.NODE_ENV == 'production') {
-  require('dotenv').config({ path: '../config/.env.prod' });
+  require('dotenv').config({ path: './config/.env.prod' });
   sequelize = new Sequelize(process.env.PROD_DB_INFO)
 }
 else {
-  require('dotenv').config({ path: '../config/.env.test' });
+  require('dotenv').config({ path: './config/.env.test' });
   sequelize = new Sequelize(process.env.DB, process.env.POSTGRES_ID, process.env.POSTGRES_KEY, {
     dialect: 'postgres'
   });

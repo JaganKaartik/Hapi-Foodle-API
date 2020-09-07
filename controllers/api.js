@@ -9,12 +9,15 @@ const displayUser = async (request, h) => {
     return rep;
 }
 
-const displayAllDish = async (request, h) => {
-    const rep = await Dishes.findAll().then((result) => {
+const displayAllDish = async (request) => {
+    const rep = await Dishes.findAll({
+        attributes: ['id', 'name', 'type', 'price']
+    }).then((result) => {
         return result
     }).catch((err) => {
         return err
     })
+    console.log(request.auth.isAuthenticated)
     return rep
 }
 
@@ -22,8 +25,9 @@ const displayDish = async (request, h) => {
     const rep = await Dishes.findAll({
         where: { id: request.params.id.toString() }
     }).then((result) => {
+        console.log(result)
         return result[0]
-    }).catch((err) => console.log(err))
+    }).catch((err) => { return err })
     return rep;
 
 }
