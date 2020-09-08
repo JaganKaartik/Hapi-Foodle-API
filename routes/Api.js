@@ -7,9 +7,10 @@ module.exports = [
     path: '/api/user/{id}',
     handler: displayUser,
     config: {
-      // auth: {
-      //   strategy: 'session'
-      // },
+      auth: {
+        strategy: 'session',
+        mode: 'try'
+      },
       validate: {
         params: Joi.object({
           id: Joi.number().integer()
@@ -21,10 +22,10 @@ module.exports = [
     method: 'GET',
     path: '/api/dish/all',
     config: {
-      // auth: {
-      //   strategy: 'session',
-      //   mode: 'required'
-      // }
+      auth: {
+        strategy: 'session',
+        mode: 'try'
+      }
     },
     handler: displayAllDish
   },
@@ -33,7 +34,10 @@ module.exports = [
     path: '/api/dish/{id}',
     handler: displayDish,
     config: {
-      // auth: 'session',
+      auth: {
+        strategy: 'session',
+        mode: 'try'
+      },
       validate: {
         params: Joi.object({
           id: Joi.number().integer()
@@ -46,7 +50,10 @@ module.exports = [
     path: '/api/dish/add',
     handler: addDish,
     config: {
-      // auth: 'session',
+      auth: {
+        strategy: 'session',
+        mode: 'try'
+      },
       validate: {
         payload: Joi.object({
           name: Joi.string().required(),
@@ -61,7 +68,10 @@ module.exports = [
     path: '/api/dish/update',
     handler: updateDish,
     config: {
-      // auth: 'session',
+      auth: {
+        strategy: 'session',
+        mode: 'try'
+      },
       validate: {
         payload: Joi.object({
           name: Joi.string().required(),
@@ -75,7 +85,10 @@ module.exports = [
     path: '/api/dish/delete/{id}',
     handler: deleteDish,
     config: {
-      // auth: 'session',
+      auth: {
+        strategy: 'session',
+        mode: 'try'
+      },
       validate: {
         params: Joi.object({
           id: Joi.number().integer()
@@ -86,14 +99,21 @@ module.exports = [
   {
     method: 'DELETE',
     path: '/api/dish/delete/all',
-    // config: { auth: 'session' },
+    config: {
+      auth: {
+        strategy: 'session',
+        mode: 'try'
+      },
+    },
     handler: deleteAll
   },
   {
     method: 'GET',
     path: '/error',
     config: {
-      auth: false
+      auth: {
+        mode: 'try'
+      },
     },
     handler: () => { return { 'message': 'Error' } }
   }
