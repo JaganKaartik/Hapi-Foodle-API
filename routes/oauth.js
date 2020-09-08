@@ -19,7 +19,7 @@ module.exports = [
         }
     },
     {
-        method: ['GET'],
+        method: 'GET',
         path: '/oauth/login/success',
         config: {
             auth: {
@@ -28,7 +28,8 @@ module.exports = [
             }
         },
         handler: (request, h) => {
-            return (request.auth.isAuthenticated ? /*{ 'message': 'OAuth Success' }*/ h.redirect('/api/dish/all') : h.redirect('/error'))
+            request.cookieAuth.set({ user: request.auth.credentials.profile })
+            return (request.auth.isAuthenticated ? { 'message': 'OAuth Success' } : h.redirect('/error'))
         }
     },
     {

@@ -18,12 +18,10 @@ module.exports = [
     }
   },
   {
-    method: 'GET',
-    path: '/api/dish/all',
+    method: `GET`,
+    path: `/api/dish/all`,
     config: {
-      auth: {
-        strategy: 'session',
-      }
+      auth: `session`
     },
     handler: displayAllDish
   },
