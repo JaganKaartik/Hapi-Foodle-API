@@ -7,9 +7,9 @@ module.exports = [
     path: '/api/user/{id}',
     handler: displayUser,
     config: {
-      auth: {
-        strategy: 'session'
-      },
+      // auth: {
+      //   strategy: 'session'
+      // },
       validate: {
         params: Joi.object({
           id: Joi.number().integer()
@@ -18,10 +18,13 @@ module.exports = [
     }
   },
   {
-    method: `GET`,
-    path: `/api/dish/all`,
+    method: 'GET',
+    path: '/api/dish/all',
     config: {
-      auth: `session`
+      // auth: {
+      //   strategy: 'session',
+      //   mode: 'required'
+      // }
     },
     handler: displayAllDish
   },
@@ -30,7 +33,7 @@ module.exports = [
     path: '/api/dish/{id}',
     handler: displayDish,
     config: {
-      auth: 'session',
+      // auth: 'session',
       validate: {
         params: Joi.object({
           id: Joi.number().integer()
@@ -43,7 +46,7 @@ module.exports = [
     path: '/api/dish/add',
     handler: addDish,
     config: {
-      auth: 'session',
+      // auth: 'session',
       validate: {
         payload: Joi.object({
           name: Joi.string().required(),
@@ -58,7 +61,7 @@ module.exports = [
     path: '/api/dish/update',
     handler: updateDish,
     config: {
-      auth: 'session',
+      // auth: 'session',
       validate: {
         payload: Joi.object({
           name: Joi.string().required(),
@@ -72,7 +75,7 @@ module.exports = [
     path: '/api/dish/delete/{id}',
     handler: deleteDish,
     config: {
-      auth: 'session',
+      // auth: 'session',
       validate: {
         params: Joi.object({
           id: Joi.number().integer()
@@ -83,7 +86,7 @@ module.exports = [
   {
     method: 'DELETE',
     path: '/api/dish/delete/all',
-    config: { auth: 'session' },
+    // config: { auth: 'session' },
     handler: deleteAll
   },
   {

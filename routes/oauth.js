@@ -23,13 +23,12 @@ module.exports = [
         path: '/oauth/login/success',
         config: {
             auth: {
-                strategy: 'session',
                 mode: 'required'
             }
         },
         handler: (request, h) => {
             request.cookieAuth.set({ user: request.auth.credentials.profile })
-            return (request.auth.isAuthenticated ? { 'message': 'OAuth Success' } : h.redirect('/error'))
+            return (request.auth.isAuthenticated ? (`<a href="/api/dish/all">Dishes</a>`) /* { 'message': 'OAuth Success' } */ : h.redirect('/error'))
         }
     },
     {

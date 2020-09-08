@@ -9,13 +9,7 @@ else {
 
 module.exports.oauthController = async (request, h) => {
     if (request.auth.isAuthenticated) {
-        const user = request.auth.credentials.profile
-        // const data = {
-        //     name: user.displayName,
-        //     username: user.username,
-        //     avatar: user.raw.avatar_url
-        // }
-        request.cookieAuth.set({ user: user })
+        // request.cookieAuth.set({ user: request.auth.credentials.profile })
         const userInDB = await Users.count({
             where: {
                 oauthid: request.auth.credentials.profile.id.toString(),
@@ -34,8 +28,8 @@ module.exports.oauthController = async (request, h) => {
                 "authprovider": request.auth.credentials.provider
             })
         }
-        return h.redirect('/api/dish/all')
-        // return h.redirect(process.env.SERVER_HOST_URL + '/oauth/login/success')
+        console.log(request.auth.isAuthenticated)
+        return h.redirect(process.env.SERVER_HOST_URL + '/oauth/login/success')
     }
     else {
         return h.redirect('/oauth/login/failed')

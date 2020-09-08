@@ -7,7 +7,7 @@ const AuthRoutes = require("./routes/oauth")
 const init = async () => {
   const server = Hapi.server({
     host: "localhost",
-    port: 5000,
+    port: 8000,
     routes: {
       cors: {
         origin: ['*'],
@@ -34,6 +34,8 @@ const init = async () => {
   server.auth.strategy('google', 'bell', strategy.GoogleStrategy);
   server.auth.strategy('session', 'cookie', strategy.CookieStrategy);
 
+
+  server.auth.default('session');
 
   server.route(ApiRoutes)
   server.route(AuthRoutes)

@@ -1,6 +1,7 @@
 const { Dishes, Users } = require('../models')
 
 const displayUser = async (request, h) => {
+    console.log(request.auth.isAuthenticated)
     const rep = await Users.findAll({
         where: { id: request.params.id.toString() }
     }).then((result) => {
@@ -10,6 +11,7 @@ const displayUser = async (request, h) => {
 }
 
 const displayAllDish = async (request) => {
+    console.log(request.auth.isAuthenticated)
     const rep = await Dishes.findAll({
         attributes: ['id', 'name', 'type', 'price']
     }).then((result) => {
@@ -17,7 +19,6 @@ const displayAllDish = async (request) => {
     }).catch((err) => {
         return err
     })
-    console.log(request.auth.isAuthenticated)
     return rep
 }
 
