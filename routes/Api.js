@@ -7,7 +7,9 @@ module.exports = [
     path: '/api/user/{id}',
     handler: displayUser,
     config: {
-      auth: 'session',
+      auth: {
+        strategy: 'session'
+      },
       validate: {
         params: Joi.object({
           id: Joi.number().integer()
@@ -21,7 +23,6 @@ module.exports = [
     config: {
       auth: {
         strategy: 'session',
-        mode: 'required'
       }
     },
     handler: displayAllDish
@@ -31,10 +32,7 @@ module.exports = [
     path: '/api/dish/{id}',
     handler: displayDish,
     config: {
-      auth: {
-        strategy: 'session',
-        mode: 'try'
-      },
+      auth: 'session',
       validate: {
         params: Joi.object({
           id: Joi.number().integer()

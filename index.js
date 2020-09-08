@@ -34,8 +34,10 @@ const init = async () => {
   server.auth.strategy('google', 'bell', strategy.GoogleStrategy);
   server.auth.strategy('session', 'cookie', strategy.CookieStrategy);
 
-  server.route(AuthRoutes)
+
   server.route(ApiRoutes)
+  server.route(AuthRoutes)
+
 
   await server.start()
   console.log(`Server running`)

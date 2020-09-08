@@ -20,9 +20,7 @@ module.exports.CookieStrategy = {
   cookie: {
     name: 'foodle',
     password: process.env.COOKIE_PASSWORD,
-    isSecure: false,
-    ttl: 60 * 60 * 24 * 1000,
-  },
-  keepAlive: true,
-  redirectTo: '/error',
+    domain: '127.0.0.1',
+    isSecure: false
+  }
 }

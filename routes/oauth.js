@@ -24,11 +24,11 @@ module.exports = [
         config: {
             auth: {
                 strategy: 'session',
-                mode: 'try'
+                mode: 'required'
             }
         },
         handler: (request, h) => {
-            return (request.auth.isAuthenticated ? { 'message': 'OAuth Success' } : h.redirect('/error'))
+            return (request.auth.isAuthenticated ? /*{ 'message': 'OAuth Success' }*/ h.redirect('/api/dish/all') : h.redirect('/error'))
         }
     },
     {

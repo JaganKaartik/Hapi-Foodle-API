@@ -17,6 +17,7 @@
     "@hapi/hapi": "^20.0.0",
     "bcrypt": "^5.0.0",
     "concurrently": "^5.3.0",
+    "hapi-auth-jwt2": "^10.2.0",
     "hapi-cors": "^1.0.3",
     "joi": "^17.2.1",
     "pg": "^8.3.3",

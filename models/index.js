@@ -7,10 +7,11 @@ if (process.env.NODE_ENV == 'production') {
   sequelize = new Sequelize(process.env.PROD_DB_INFO)
 }
 else {
-  require('dotenv').config({ path: './config/.env.test' });
+  require('dotenv').config({ path: './config/.env.dev' });
   sequelize = new Sequelize(process.env.DB, process.env.POSTGRES_ID, process.env.POSTGRES_KEY, {
     dialect: 'postgres'
   });
+
 }
 
 const Users = sequelize.define(
