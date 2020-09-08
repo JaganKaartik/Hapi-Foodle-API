@@ -27,7 +27,7 @@ module.exports = [
             }
         },
         handler: (request, h) => {
-            request.cookieAuth.set({ user: request.auth.credentials.profile })
+            // request.cookieAuth.set({ user: request.auth.credentials.profile })
             return (request.auth.isAuthenticated ? (`<a href="/api/dish/all">Dishes</a>`) /* { 'message': 'OAuth Success' } */ : h.redirect('/error'))
         }
     },

@@ -34,8 +34,14 @@ const init = async () => {
   server.auth.strategy('google', 'bell', strategy.GoogleStrategy);
   server.auth.strategy('session', 'cookie', strategy.CookieStrategy);
 
-
   server.auth.default('session');
+
+  // setup cache
+  const cache = server.cache({
+    segment: 'sessions',
+    expiresIn: 24 * 60 * 60 * 1000
+  })
+  server.app.cache = cache
 
   server.route(ApiRoutes)
   server.route(AuthRoutes)
@@ -45,6 +51,7 @@ const init = async () => {
   console.log(`Server running`)
 
   module.exports.server = server;
+  module.exports.cache = server.app.cache;
 
 }
 

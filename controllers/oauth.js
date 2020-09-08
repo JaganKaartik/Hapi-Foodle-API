@@ -1,4 +1,5 @@
 const { Users } = require('../models')
+const { server } = require('../')
 
 if (process.env.NODE_ENV != 'development') {
     require('dotenv').config({ path: './config/.env.prod' })
@@ -9,7 +10,6 @@ else {
 
 module.exports.oauthController = async (request, h) => {
     if (request.auth.isAuthenticated) {
-        // request.cookieAuth.set({ user: request.auth.credentials.profile })
         const userInDB = await Users.count({
             where: {
                 oauthid: request.auth.credentials.profile.id.toString(),
@@ -28,7 +28,10 @@ module.exports.oauthController = async (request, h) => {
                 "authprovider": request.auth.credentials.provider
             })
         }
-        console.log(request.auth.isAuthenticated)
+        const sid = String(Math.random())
+        const user = request.auth.credentials.profile.id
+        await request.server.app.cache.set(sid, user, 0)
+        request.cookieAuth.set({ sid: sid, user: user })
         return h.redirect(process.env.SERVER_HOST_URL + '/oauth/login/success')
     }
     else {

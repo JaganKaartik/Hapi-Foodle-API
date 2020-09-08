@@ -16,14 +16,35 @@ module.exports.GoogleStrategy = {
   isSecure: false
 }
 
+// module.exports.CookieStrategy = {
+//   cookie: {
+//     name: 'foodle',
+//     password: process.env.COOKIE_PASSWORD,
+//     ttl: 60 * 60 * 24 * 1000,
+//     isSecure: false,
+//     isSameSite: 'Lax',
+//   },
+//   keepAlive: false,
+//   redirectTo: "/error"
+// }
+
 module.exports.CookieStrategy = {
   cookie: {
-    name: 'foodle',
+    name: "foodle",
     password: process.env.COOKIE_PASSWORD,
-    ttl: 60 * 60 * 24 * 1000,
     isSecure: false,
-    isSameSite: 'Lax',
+    isSameSite: "Lax",
+    ttl: 60 * 60 * 24 * 1000
   },
-  keepAlive: false,
-  redirectTo: "/error"
+  redirectTo: "/error",
+  validateFunc: async (request, session) => {
+    const cached = await cache.get(session.sid);
+    const out = {
+      valid: !!cached
+    };
+    if (out.valid) {
+      out.credentials = cached.account;
+    }
+    return out;
+  }
 }
