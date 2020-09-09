@@ -25,9 +25,9 @@ module.exports = [
       auth: {
         strategy: 'session',
         mode: 'try'
-      }
-    },
-    handler: displayAllDish
+      },
+      handler: displayAllDish
+    }
   },
   {
     method: 'GET',
@@ -111,9 +111,7 @@ module.exports = [
     method: 'GET',
     path: '/error',
     config: {
-      auth: {
-        mode: 'try'
-      },
+      auth: false
     },
     handler: () => { return { 'message': 'Error' } }
   }

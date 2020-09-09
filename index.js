@@ -30,20 +30,19 @@ const init = async () => {
 
   await server.register(plugs);
 
+
   server.auth.strategy('github', 'bell', strategy.GithubStrategy);
   server.auth.strategy('google', 'bell', strategy.GoogleStrategy);
   server.auth.strategy('session', 'cookie', strategy.CookieStrategy);
+  server.auth.default('session')
 
   server.route(ApiRoutes)
   server.route(AuthRoutes)
-
 
   await server.start()
   console.log(`Server running`)
 
   module.exports.server = server;
-  module.exports.cache = server.app.cache;
-
 }
 
 process.on('unhandledRejection', (err) => {
