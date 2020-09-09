@@ -1,22 +1,7 @@
-const { displayUser, displayAllDish, deleteDish, displayDish, updateDish, addDish, deleteAll } = require('../controllers/api');
+const { displayAllDish, deleteDish, displayDish, updateDish, addDish, deleteAll } = require('../controllers/api');
 const Joi = require('joi');
 
 module.exports = [
-  {
-    method: 'GET',
-    path: '/api/user/{id}',
-    handler: displayUser,
-    config: {
-      auth: {
-        strategy: 'session',
-      },
-      validate: {
-        params: Joi.object({
-          id: Joi.number().integer()
-        })
-      }
-    }
-  },
   {
     method: 'GET',
     path: '/api/dish/all',

@@ -1,15 +1,5 @@
 const { Dishes, Users } = require('../models')
 
-const displayUser = async (request, h) => {
-    console.log(request.auth.isAuthenticated)
-    const rep = await Users.findAll({
-        where: { id: request.params.id.toString() }
-    }).then((result) => {
-        return result[0]
-    }).catch((err) => { return err })
-    return rep;
-}
-
 const displayAllDish = async (request) => {
     console.log(request.auth.isAuthenticated)
     const rep = await Dishes.findAll({
@@ -60,8 +50,6 @@ const deleteAll = (request, h) => {
     }).then(() => { return reply(`SuccessFully Deleted All Records`).code(200) }).catch((err) => { return err.code(500) })
 }
 
-// module.exports.loginHandler = login
-module.exports.displayUser = displayUser
 module.exports.displayAllDish = displayAllDish
 module.exports.displayDish = displayDish
 module.exports.addDish = addDish
