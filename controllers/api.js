@@ -1,7 +1,6 @@
-const { Dishes, Users } = require('../models')
+const { Dishes } = require('../models')
 
-const displayAllDish = async (request) => {
-    console.log(request.auth.isAuthenticated)
+const displayAllDish = async (request, h) => {
     const rep = await Dishes.findAll({
         attributes: ['id', 'name', 'type', 'price']
     }).then((result) => {

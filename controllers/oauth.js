@@ -27,7 +27,9 @@ module.exports.oauthController = async (request, h) => {
                 "authprovider": request.auth.credentials.provider
             })
         }
-        request.cookieAuth.set({ uid: request.auth.credentials.profile.id })
+
+        request.cookieAuth.set({ id: request.auth.credentials.profile.id })
+
         return h.redirect(process.env.SERVER_HOST_URL + '/oauth/login/success')
     }
     else {

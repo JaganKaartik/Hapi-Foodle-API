@@ -22,6 +22,5 @@ module.exports.CookieStrategy = {
     password: process.env.COOKIE_PASSWORD,
     isSecure: false,
     isSameSite: 'Lax'
-  },
-  redirectTo: "/error"
+  }
 }

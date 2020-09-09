@@ -9,3 +9,4 @@ test.js
 .DS_Store
 .env*
 prod.json
+mega.js

@@ -1,8 +1,9 @@
+'use strict'
+
 const Hapi = require('@hapi/hapi')
 const strategy = require("./strategies/")
 const plugs = require("./strategies/plugin")
-const ApiRoutes = require("./routes/api")
-const AuthRoutes = require("./routes/oauth")
+const routes = require("./routes")
 
 const init = async () => {
   const server = Hapi.server({
@@ -30,14 +31,12 @@ const init = async () => {
 
   await server.register(plugs);
 
-
   server.auth.strategy('github', 'bell', strategy.GithubStrategy);
   server.auth.strategy('google', 'bell', strategy.GoogleStrategy);
   server.auth.strategy('session', 'cookie', strategy.CookieStrategy);
-  // server.auth.default('session')
+  server.auth.default('session')
 
-  server.route(ApiRoutes)
-  server.route(AuthRoutes)
+  server.route(routes)
 
   await server.start()
   console.log(`Server running`)

@@ -3,16 +3,8 @@ const { oauthController, authController } = require('../controllers/oauth')
 module.exports = [
     {
         method: ['GET'],
-        path: '/authSuccess',
-        config: {
-            auth: 'session',
-            handler: authController
-        }
-    },
-    {
-        method: ['GET'],
         path: '/oauth/github',
-        config: {
+        options: {
             auth: 'github',
             handler: oauthController
         }
@@ -20,7 +12,7 @@ module.exports = [
     {
         method: ['GET', 'POST'],
         path: '/oauth/google',
-        config: {
+        options: {
             auth: 'google',
             handler: oauthController
 
@@ -29,9 +21,8 @@ module.exports = [
     {
         method: 'GET',
         path: '/oauth/login/success',
-        config: {
+        options: {
             auth: {
-                strategy: 'session',
                 mode: 'required'
             },
         },
@@ -42,7 +33,7 @@ module.exports = [
     {
         method: 'GET',
         path: '/oauth/login/failed',
-        config: {
+        options: {
             auth: false
         },
         handler: () => {
@@ -52,7 +43,7 @@ module.exports = [
     {
         method: 'GET',
         path: '/logout',
-        config: {
+        options: {
             auth: false,
             handler: (request, h) => {
                 request.cookieAuth.clear();
