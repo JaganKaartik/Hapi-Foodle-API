@@ -9,7 +9,6 @@ module.exports = [
     config: {
       auth: {
         strategy: 'session',
-        mode: 'try'
       },
       validate: {
         params: Joi.object({
@@ -22,10 +21,7 @@ module.exports = [
     method: 'GET',
     path: '/api/dish/all',
     config: {
-      auth: {
-        strategy: 'session',
-        mode: 'try'
-      },
+      auth: false,
       handler: displayAllDish
     }
   },

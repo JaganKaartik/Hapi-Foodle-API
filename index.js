@@ -1,5 +1,5 @@
 const Hapi = require('@hapi/hapi')
-const strategy = require("./strategies/bell")
+const strategy = require("./strategies/")
 const plugs = require("./strategies/plugin")
 const ApiRoutes = require("./routes/api")
 const AuthRoutes = require("./routes/oauth")

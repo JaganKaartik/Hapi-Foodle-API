@@ -34,3 +34,13 @@ module.exports.oauthController = async (request, h) => {
         return h.redirect('/oauth/login/failed')
     }
 }
+
+module.exports.authController = async (request, h) => {
+    if (request.auth.isAuthenticated) {
+        console.log('VALID AUTHENTICATION')
+        return (`<h1><a href='/api/dish/all'>DISHES</a></h1>`)
+    }
+    else {
+        return (`<h1><a href='/api/dish/all'>NOT AUTH</a></h1>`)
+    }
+}
