@@ -11,7 +11,7 @@ const Joi = require('joi')
 module.exports = [
   {
     method: 'GET',
-    path: '/api/dish/all',
+    path: '/a/all',
     options: {
       handler: displayAllDish,
       auth: { mode: 'required' },
@@ -19,11 +19,9 @@ module.exports = [
   },
   {
     method: 'GET',
-    path: '/api/dish/{id}',
+    path: '/a/{id}',
     options: {
-      auth: {
-        strategy: 'session',
-      },
+      auth: { mode: 'required' },
       handler: displayDish,
       validate: {
         params: Joi.object({
@@ -34,12 +32,9 @@ module.exports = [
   },
   {
     method: 'POST',
-    path: '/api/dish/add',
+    path: '/api/add',
     options: {
-      auth: {
-        strategy: 'session',
-        mode: 'try',
-      },
+      auth: { mode: 'required' },
       handler: addDish,
       validate: {
         payload: Joi.object({
@@ -52,12 +47,9 @@ module.exports = [
   },
   {
     method: 'PUT',
-    path: '/api/dish/update',
+    path: '/api/update',
     options: {
-      auth: {
-        strategy: 'session',
-        mode: 'try',
-      },
+      auth: { mode: 'required' },
       handler: updateDish,
       validate: {
         payload: Joi.object({
@@ -69,12 +61,9 @@ module.exports = [
   },
   {
     method: 'DELETE',
-    path: '/api/dish/delete/{id}',
+    path: '/api/delete/{id}',
     options: {
-      auth: {
-        strategy: 'session',
-        mode: 'try',
-      },
+      auth: { mode: 'required' },
       handler: deleteDish,
       validate: {
         params: Joi.object({
@@ -85,23 +74,10 @@ module.exports = [
   },
   {
     method: 'DELETE',
-    path: '/api/dish/delete/all',
+    path: '/api/delete/all',
     options: {
-      auth: {
-        strategy: 'session',
-        mode: 'try',
-      },
-    },
-    handler: deleteAll,
-  },
-  {
-    method: 'GET',
-    path: '/error',
-    options: {
-      auth: false,
-    },
-    handler: () => {
-      return { message: 'Error' }
+      auth: { mode: 'required' },
+      handler: deleteAll,
     },
   },
 ]

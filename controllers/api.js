@@ -34,7 +34,7 @@ const addDish = (request, h) => {
     price: request.payload.price,
   })
     .then(() => {
-      return reply(`Successfully inserted Dish`)
+      return h(`Successfully inserted Dish`)
     })
     .catch((err) => {
       return err
@@ -49,7 +49,7 @@ const updateDish = (request, h) => {
     }
   )
     .then(() => {
-      return reply(`SuccessFully Updated Record`).code(200)
+      return h(`SuccessFully Updated Record`).code(200)
     })
     .catch((err) => {
       return err.code(500)
@@ -62,7 +62,7 @@ const deleteDish = (request, h) => {
     force: true,
   })
     .then(() => {
-      return reply(`SuccessFully Deleted Record`).code(200)
+      return h(`SuccessFully Deleted Record`).code(200)
     })
     .catch((err) => {
       return err.code(500)
@@ -75,7 +75,7 @@ const deleteAll = (request, h) => {
     force: true,
   })
     .then(() => {
-      return reply(`SuccessFully Deleted All Records`).code(200)
+      return h(`SuccessFully Deleted All Records`).code(200)
     })
     .catch((err) => {
       return err.code(500)

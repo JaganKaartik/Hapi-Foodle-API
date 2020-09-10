@@ -9,10 +9,10 @@
   "scripts": {
     "prodtest": "NODE_ENV=prodtest nodemon index",
     "dev": "NODE_ENV=development nodemon index",
-    "start": "node api.js",
+    "start": "nodemon index",
     "p": "prettier --write './**/*.js'",
     "p:w": "onchange './**/*.js' -- prettier --write {{changed}}",
-    "lint": "eslint src --color",
+    "lint": "eslint ./ --color",
     "build": "babel src --out-dir dist --ignore node_modules"
   },
   "dependencies": {

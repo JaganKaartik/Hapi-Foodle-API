@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 
 let sequelize
 
-if (process.env.NODE_ENV == 'production') {
+if (process.env.NODE_ENV === 'production') {
   require('dotenv').config({ path: './config/.env.prod' })
   sequelize = new Sequelize(process.env.PROD_DB_INFO)
 } else {
@@ -17,23 +17,23 @@ if (process.env.NODE_ENV == 'production') {
   )
 }
 
-const Users = sequelize.define(
-  'Users',
-  {
-    oauthid: {
-      type: Sequelize.INTEGER,
-    },
-    displayname: {
-      type: Sequelize.STRING,
-    },
-    authprovider: {
-      type: Sequelize.STRING,
-    },
-  },
-  {
-    timestamps: false,
-  }
-)
+// const Users = sequelize.define(
+//   'Users',
+//   {
+//     oauthid: {
+//       type: Sequelize.INTEGER,
+//     },
+//     displayname: {
+//       type: Sequelize.STRING,
+//     },
+//     authprovider: {
+//       type: Sequelize.STRING,
+//     },
+//   },
+//   {
+//     timestamps: false,
+//   }
+// )
 
 const Dishes = sequelize.define(
   'Dishes',
@@ -62,8 +62,8 @@ sequelize
     console.error('Unable to connect to the database:', err)
   })
 
-Users.sync({})
+// Users.sync({})
 Dishes.sync({})
 
-module.exports.Users = Users
+// module.exports.Users = Users
 module.exports.Dishes = Dishes

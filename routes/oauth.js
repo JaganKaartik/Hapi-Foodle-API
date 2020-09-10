@@ -1,62 +1,52 @@
-const { oauthController, authController } = require('../controllers/oauth')
+const { authController } = require('../controllers/oauth')
 
 module.exports = [
   {
     method: 'GET',
-    path: '/success',
-    options: {
-      auth: { mode: 'try' },
-      handler: (req, h) => {
-        console.log(req.auth.credentials)
-      },
-    },
-  },
-  {
-    method: ['GET'],
-    path: '/oauth/github',
+    path: '/auth/github',
     options: {
       auth: 'github',
-      handler: oauthController,
+      handler: authController,
     },
   },
   {
     method: ['GET', 'POST'],
-    path: '/oauth/google',
+    path: '/auth/google',
     options: {
       auth: 'google',
-      handler: oauthController,
+      handler: authController,
     },
   },
   {
     method: 'GET',
-    path: '/oauth/login/success',
+    path: '/auth/login/success',
     options: {
       auth: {
         mode: 'required',
       },
-    },
-    handler: (request, h) => {
-      console.log(request.auth.credentials)
-      return request.auth.isAuthenticated
-        ? h.redirect('/success')
-        : { message: 'OAuth Failed' }
+      handler: (request, h) => {
+        console.log(request.auth.credentials)
+        return request.auth.isAuthenticated
+          ? { message: 'OAuth Success' }
+          : { message: 'OAuth Failed' }
+      },
     },
   },
   {
     method: 'GET',
-    path: '/oauth/login/failed',
+    path: '/auth/login/failed',
     options: {
-      auth: false,
-    },
-    handler: () => {
-      return { message: 'OAuth Failed' }
+      auth: { mode: 'try' },
+      handler: () => {
+        return { message: 'OAuth Failed' }
+      },
     },
   },
   {
     method: 'GET',
     path: '/logout',
     options: {
-      auth: false,
+      auth: { mode: 'try' },
       handler: (request, h) => {
         request.cookieAuth.clear()
         return { message: 'success' }
