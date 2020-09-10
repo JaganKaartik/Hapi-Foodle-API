@@ -9,7 +9,11 @@
   "scripts": {
     "prodtest": "NODE_ENV=prodtest nodemon index",
     "dev": "NODE_ENV=development nodemon index",
-    "start": "node api.js"
+    "start": "node api.js",
+    "p": "prettier --write './**/*.js'",
+    "p:w": "onchange './**/*.js' -- prettier --write {{changed}}",
+    "lint": "eslint src --color",
+    "build": "babel src --out-dir dist --ignore node_modules"
   },
   "dependencies": {
     "@hapi/bell": "^12.1.0",
@@ -25,7 +29,20 @@
     "sequelize": "^6.3.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.4"
+    "eslint": "^7.8.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^2.0.4",
+    "onchange": "^7.0.2",
+    "prettier": "^2.1.1"
   }
 }

@@ -1,19 +1,19 @@
-require('dotenv').config({ path: './config/.env' });
+require('dotenv').config({ path: './config/.env' })
 
 module.exports.GithubStrategy = {
-  provider: "github",
+  provider: 'github',
   password: process.env.RANDOM_PASSWORD_STRING,
   clientId: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  isSecure: false
+  isSecure: false,
 }
 
 module.exports.GoogleStrategy = {
-  provider: "google",
+  provider: 'google',
   password: process.env.RANDOM_PASSWORD_STRING,
   clientId: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  isSecure: false
+  isSecure: false,
 }
 
 module.exports.CookieStrategy = {
@@ -22,8 +22,8 @@ module.exports.CookieStrategy = {
     password: process.env.COOKIE_PASSWORD,
     isSecure: false,
     ttl: 60 * 60 * 1000,
-    isSameSite: 'Lax'
+    isSameSite: 'Lax',
   },
   redirectTo: false,
-  keepAlive: true
+  keepAlive: true,
 }

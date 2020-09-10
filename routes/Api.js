@@ -1,5 +1,12 @@
-const { displayAllDish, deleteDish, displayDish, updateDish, addDish, deleteAll } = require('../controllers/api');
-const Joi = require('joi');
+const {
+  displayAllDish,
+  deleteDish,
+  displayDish,
+  updateDish,
+  addDish,
+  deleteAll,
+} = require('../controllers/api')
+const Joi = require('joi')
 
 module.exports = [
   {
@@ -7,23 +14,23 @@ module.exports = [
     path: '/api/dish/all',
     options: {
       handler: displayAllDish,
-      auth: { mode: 'required' }
-    }
+      auth: { mode: 'required' },
+    },
   },
   {
     method: 'GET',
     path: '/api/dish/{id}',
     options: {
       auth: {
-        strategy: 'session'
+        strategy: 'session',
       },
       handler: displayDish,
       validate: {
         params: Joi.object({
-          id: Joi.number().integer()
-        })
-      }
-    }
+          id: Joi.number().integer(),
+        }),
+      },
+    },
   },
   {
     method: 'POST',
@@ -31,17 +38,17 @@ module.exports = [
     options: {
       auth: {
         strategy: 'session',
-        mode: 'try'
+        mode: 'try',
       },
       handler: addDish,
       validate: {
         payload: Joi.object({
           name: Joi.string().required(),
           type: Joi.string().alphanum().required(),
-          price: Joi.string().required()
-        })
-      }
-    }
+          price: Joi.string().required(),
+        }),
+      },
+    },
   },
   {
     method: 'PUT',
@@ -49,16 +56,16 @@ module.exports = [
     options: {
       auth: {
         strategy: 'session',
-        mode: 'try'
+        mode: 'try',
       },
       handler: updateDish,
       validate: {
         payload: Joi.object({
           name: Joi.string().required(),
-          price: Joi.string().required()
-        })
-      }
-    }
+          price: Joi.string().required(),
+        }),
+      },
+    },
   },
   {
     method: 'DELETE',
@@ -66,15 +73,15 @@ module.exports = [
     options: {
       auth: {
         strategy: 'session',
-        mode: 'try'
+        mode: 'try',
       },
       handler: deleteDish,
       validate: {
         params: Joi.object({
-          id: Joi.number().integer()
-        })
-      }
-    }
+          id: Joi.number().integer(),
+        }),
+      },
+    },
   },
   {
     method: 'DELETE',
@@ -82,18 +89,19 @@ module.exports = [
     options: {
       auth: {
         strategy: 'session',
-        mode: 'try'
+        mode: 'try',
       },
     },
-    handler: deleteAll
+    handler: deleteAll,
   },
   {
     method: 'GET',
     path: '/error',
     options: {
-      auth: false
+      auth: false,
     },
-    handler: () => { return { 'message': 'Error' } }
-  }
+    handler: () => {
+      return { message: 'Error' }
+    },
+  },
 ]
-
