@@ -51,12 +51,12 @@ module.exports = [
     options: {
       auth: { mode: 'required' },
       handler: updateDish,
-      validate: {
-        payload: Joi.object({
-          name: Joi.string().required(),
-          price: Joi.string().required(),
-        }),
-      },
+      // validate: {
+      //   payload: Joi.object({
+      //     name: Joi.string().required(),
+      //     price: Joi.string().required(),
+      //   }),
+      // },
     },
   },
   {

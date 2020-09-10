@@ -1,4 +1,8 @@
-require('dotenv').config({ path: './config/.env' })
+if (process.env.NODE_ENV === 'production') {
+  require('dotenv').config({ path: './config/.env.prod' })
+} else {
+  require('dotenv').config({ path: './config/.env.dev' })
+}
 
 module.exports.GithubStrategy = {
   provider: 'github',

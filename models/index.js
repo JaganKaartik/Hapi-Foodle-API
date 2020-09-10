@@ -17,24 +17,6 @@ if (process.env.NODE_ENV === 'production') {
   )
 }
 
-// const Users = sequelize.define(
-//   'Users',
-//   {
-//     oauthid: {
-//       type: Sequelize.INTEGER,
-//     },
-//     displayname: {
-//       type: Sequelize.STRING,
-//     },
-//     authprovider: {
-//       type: Sequelize.STRING,
-//     },
-//   },
-//   {
-//     timestamps: false,
-//   }
-// )
-
 const Dishes = sequelize.define(
   'Dishes',
   {
@@ -62,8 +44,5 @@ sequelize
     console.error('Unable to connect to the database:', err)
   })
 
-// Users.sync({})
 Dishes.sync({})
-
-// module.exports.Users = Users
 module.exports.Dishes = Dishes

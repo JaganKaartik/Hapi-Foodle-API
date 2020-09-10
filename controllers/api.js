@@ -27,59 +27,63 @@ const displayDish = async (request, h) => {
   return rep
 }
 
-const addDish = (request, h) => {
-  Dishes.create({
+const addDish = async (request, h) => {
+  const rep = await Dishes.create({
     name: request.payload.name,
     type: request.payload.type,
     price: request.payload.price,
   })
     .then(() => {
-      return h(`Successfully inserted Dish`)
+      return ({ "message": "Successfully inserted Dish" })
     })
     .catch((err) => {
       return err
     })
+  return rep
 }
 
-const updateDish = (request, h) => {
-  Dishes.update(
+const updateDish = async (request, h) => {
+  const rep = await Dishes.update(
     { price: request.payload.price },
     {
       where: { name: request.payload.name },
     }
   )
     .then(() => {
-      return h(`SuccessFully Updated Record`).code(200)
+      return ({ "message": "Successfully Updated Dish" })
     })
     .catch((err) => {
-      return err.code(500)
+      return err
     })
+  return rep
 }
 
-const deleteDish = (request, h) => {
-  Dishes.destroy({
+const deleteDish = async (request, h) => {
+  const rep = await Dishes.destroy({
     where: { id: request.params.id.toString() },
     force: true,
   })
     .then(() => {
-      return h(`SuccessFully Deleted Record`).code(200)
+      return ({ "message": "Warning! SuccessFully Deleted Record" })
     })
     .catch((err) => {
-      return err.code(500)
+      return err
     })
+  return rep
 }
 
-const deleteAll = (request, h) => {
-  Dishes.destroy({
+const deleteAll = async (request, h) => {
+  const rep = await Dishes.destroy({
     where: {},
     force: true,
   })
     .then(() => {
-      return h(`SuccessFully Deleted All Records`).code(200)
+      return ({ "message": "Warning! SuccessFully Deleted All Records" })
     })
     .catch((err) => {
       return err.code(500)
     })
+  return rep
 }
 
 module.exports.displayAllDish = displayAllDish
