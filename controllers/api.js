@@ -34,7 +34,7 @@ const addDish = async (request, h) => {
     price: request.payload.price,
   })
     .then(() => {
-      return ({ "message": "Successfully inserted Dish" })
+      return { message: 'Successfully inserted Dish' }
     })
     .catch((err) => {
       return err
@@ -50,7 +50,7 @@ const updateDish = async (request, h) => {
     }
   )
     .then(() => {
-      return ({ "message": "Successfully Updated Dish" })
+      return { message: 'Successfully Updated Dish' }
     })
     .catch((err) => {
       return err
@@ -64,7 +64,7 @@ const deleteDish = async (request, h) => {
     force: true,
   })
     .then(() => {
-      return ({ "message": "Warning! SuccessFully Deleted Record" })
+      return { message: 'Warning! SuccessFully Deleted Record' }
     })
     .catch((err) => {
       return err
@@ -78,7 +78,7 @@ const deleteAll = async (request, h) => {
     force: true,
   })
     .then(() => {
-      return ({ "message": "Warning! SuccessFully Deleted All Records" })
+      return { message: 'Warning! SuccessFully Deleted All Records' }
     })
     .catch((err) => {
       return err.code(500)
