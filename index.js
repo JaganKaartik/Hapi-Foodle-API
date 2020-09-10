@@ -4,12 +4,12 @@ const Hapi = require('@hapi/hapi')
 const strategy = require('./strategies/')
 const plugs = require('./strategies/plugin')
 const apiroutes = require('./routes/api')
-const authroutes = require('./routes/oauth')
+const authroutes = require('./routes/auth')
 
 const init = async () => {
   const server = Hapi.server({
     host: 'localhost',
-    port: 8888,
+    port: process.env.PORT || 8888,
   })
 
   await server.register(plugs)

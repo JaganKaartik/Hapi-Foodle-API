@@ -1,4 +1,4 @@
-const { authController } = require('../controllers/oauth')
+const { authController } = require('../controllers/auth')
 
 module.exports = [
   {
@@ -48,11 +48,7 @@ module.exports = [
     options: {
       auth: { mode: 'try' },
       handler: (request, h) => {
-        console.log(`Currently session of id : ${request.auth.credentials}`)
         request.cookieAuth.clear()
-        console.log(
-          `After Cookie Cleared: Currently session of id : ${request.auth.credentials}`
-        )
         return { message: 'success' }
       },
     },
