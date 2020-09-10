@@ -7,7 +7,7 @@ module.exports = [
     path: '/api/dish/all',
     options: {
       handler: displayAllDish,
-      // auth: { mode: 'required' }
+      auth: { mode: 'required' }
     }
   },
   {

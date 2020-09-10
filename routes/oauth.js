@@ -2,6 +2,16 @@ const { oauthController, authController } = require('../controllers/oauth')
 
 module.exports = [
     {
+        method: 'GET',
+        path: '/success',
+        options: {
+            auth: { mode: 'try' },
+            handler: (req, h) => {
+                console.log(req.auth.credentials)
+            }
+        }
+    },
+    {
         method: ['GET'],
         path: '/oauth/github',
         options: {
@@ -27,7 +37,8 @@ module.exports = [
             },
         },
         handler: (request, h) => {
-            return (request.auth.isAuthenticated ? { 'message': 'OAuth Success' } : { 'message': 'OAuth Failed' })
+            console.log(request.auth.credentials)
+            return (request.auth.isAuthenticated ? h.redirect('/success') : { 'message': 'OAuth Failed' })
         }
     },
     {

@@ -29,11 +29,11 @@ module.exports.oauthController = async (request, h) => {
         }
 
         request.cookieAuth.set({ id: request.auth.credentials.profile.id })
-
-        return h.redirect(process.env.SERVER_HOST_URL + '/oauth/login/success')
+        console.log('at /auth/github controllers')
+        return h.redirect('/auth/login/success')
     }
     else {
-        return h.redirect('/oauth/login/failed')
+        return h.redirect('/auth/login/failed')
     }
 }
 

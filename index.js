@@ -3,12 +3,12 @@
 const Hapi = require('@hapi/hapi')
 const strategy = require("./strategies/")
 const plugs = require("./strategies/plugin")
-const routes = require("./routes")
+const routes = require("./routes/mega")
 
 const init = async () => {
   const server = Hapi.server({
     host: "localhost",
-    port: 8000,
+    port: 8888,
     routes: {
       cors: {
         origin: ['*'],
