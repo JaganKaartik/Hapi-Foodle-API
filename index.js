@@ -3,7 +3,8 @@
 const Hapi = require('@hapi/hapi')
 const strategy = require('./strategies/')
 const plugs = require('./strategies/plugin')
-const routes = require('./routes')
+const apiroutes = require('./routes/api')
+const authroutes = require('./routes/oauth')
 
 const init = async () => {
   const server = Hapi.server({
@@ -18,7 +19,8 @@ const init = async () => {
   server.auth.strategy('session', 'cookie', strategy.CookieStrategy)
   server.auth.default('session')
 
-  server.route(routes)
+  server.route(apiroutes)
+  server.route(authroutes)
 
   await server.start()
   console.log(`Server running`)

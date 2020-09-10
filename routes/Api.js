@@ -11,7 +11,7 @@ const Joi = require('joi')
 module.exports = [
   {
     method: 'GET',
-    path: '/a/all',
+    path: '/api/dish/all',
     options: {
       handler: displayAllDish,
       auth: { mode: 'required' },
@@ -19,7 +19,7 @@ module.exports = [
   },
   {
     method: 'GET',
-    path: '/a/{id}',
+    path: '/api/dish/{id}',
     options: {
       auth: { mode: 'required' },
       handler: displayDish,
@@ -32,7 +32,7 @@ module.exports = [
   },
   {
     method: 'POST',
-    path: '/api/add',
+    path: '/api/dish/add',
     options: {
       auth: { mode: 'required' },
       handler: addDish,
@@ -47,7 +47,7 @@ module.exports = [
   },
   {
     method: 'PUT',
-    path: '/api/update',
+    path: '/api/dish/update',
     options: {
       auth: { mode: 'required' },
       handler: updateDish,
@@ -61,7 +61,7 @@ module.exports = [
   },
   {
     method: 'DELETE',
-    path: '/api/delete/{id}',
+    path: '/api/dish/delete/{id}',
     options: {
       auth: { mode: 'required' },
       handler: deleteDish,
@@ -74,10 +74,10 @@ module.exports = [
   },
   {
     method: 'DELETE',
-    path: '/api/delete/all',
+    path: '/api/dish/delete/all',
     options: {
       auth: { mode: 'required' },
       handler: deleteAll,
     },
-  },
+  }
 ]

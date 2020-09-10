@@ -1,11 +1,12 @@
-// const { Users } = require('../models')
-
 if (process.env.NODE_ENV !== 'development') {
   require('dotenv').config({ path: './config/.env.prod' })
 } else {
   require('dotenv').config({ path: './config/.env.dev' })
 }
 
+/* To check if user present in DB while OAUTH Authentication */
+
+// const { Users } = require('../models')
 // module.exports.oauthController = async (request, h) => {
 //   if (request.auth.isAuthenticated) {
 //     const userInDB = await Users.count({

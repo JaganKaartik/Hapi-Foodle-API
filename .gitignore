@@ -5,7 +5,5 @@
 /misc
 .pnp.js
 ngrok
-mega.js
 .DS_Store
 .env*
-prod.json
