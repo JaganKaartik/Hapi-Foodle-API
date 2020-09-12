@@ -24,11 +24,10 @@ module.exports.CookieStrategy = {
   cookie: {
     name: 'foodle',
     password: process.env.COOKIE_PASSWORD,
-    isSecure: process.env.NODE_ENV === 'production',
+    isSecure: false,
     path: '/',
-    domain: 'localhost',
     // ttl: 60 * 60 * 1000,
-    isSameSite: 'Lax',
+    isSameSite: 'Lax'
   },
   redirectTo: false,
   // keepAlive: true,

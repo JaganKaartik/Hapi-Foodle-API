@@ -5,12 +5,15 @@ module.exports = [
     method: 'GET',
     path: '/auth/github',
     options: {
-      auth: 'github',
-      handler: authController,
+      auth: {
+        mode: 'try',
+        strategy: 'github'
+      },
+      handler: authController
     },
   },
   {
-    method: ['GET', 'POST'],
+    method: 'GET',
     path: '/auth/google',
     options: {
       auth: 'google',
