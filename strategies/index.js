@@ -26,6 +26,7 @@ module.exports.CookieStrategy = {
     password: process.env.COOKIE_PASSWORD,
     isSecure: process.env.NODE_ENV === 'production',
     path: '/',
+    domain: 'localhost',
     // ttl: 60 * 60 * 1000,
     isSameSite: 'Lax',
   },
