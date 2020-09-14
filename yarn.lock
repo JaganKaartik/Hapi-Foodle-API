@@ -2463,6 +2463,11 @@ hapi-cors@^1.0.3:
   dependencies:
     joi "^7.0.1"
 
+hapi-require-https@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/hapi-require-https/-/hapi-require-https-5.0.0.tgz#11237983e0c352d0e4ad1a3cddb35f54a779c121"
+  integrity sha512-4cL0jNkcpr72mRyVhgl2ZNdJDHdw4ivv5UF4fEGHPqb+fO1c+eomDbnuYhxRRLFxLXsK8vaBAz7RwljG6W25mg==
+
 has-flag@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-3.0.0.tgz#b5d454dc2199ae225699f3467e5a07f3b955bafd"

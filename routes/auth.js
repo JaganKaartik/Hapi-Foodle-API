@@ -13,7 +13,7 @@ module.exports = [
     },
   },
   {
-    method: 'GET',
+    method: ['GET', 'POST'],
     path: '/auth/google',
     options: {
       auth: 'google',

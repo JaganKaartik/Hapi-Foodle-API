@@ -10,6 +10,7 @@ module.exports.GithubStrategy = {
   clientId: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
   isSecure: false,
+  isHttpOnly: false
 }
 
 module.exports.GoogleStrategy = {
@@ -18,6 +19,7 @@ module.exports.GoogleStrategy = {
   clientId: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   isSecure: false,
+  isHttpOnly: false
 }
 
 module.exports.CookieStrategy = {
