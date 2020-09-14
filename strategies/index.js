@@ -10,7 +10,7 @@ module.exports.GithubStrategy = {
   clientId: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
   isSecure: false,
-  isHttpOnly: true
+  isHttpOnly: true,
 }
 
 module.exports.GoogleStrategy = {
@@ -19,7 +19,7 @@ module.exports.GoogleStrategy = {
   clientId: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   isSecure: false,
-  isHttpOnly: true
+  isHttpOnly: true,
 }
 
 module.exports.CookieStrategy = {
@@ -28,9 +28,7 @@ module.exports.CookieStrategy = {
     password: process.env.COOKIE_PASSWORD,
     isSecure: false,
     path: '/',
-    // ttl: 60 * 60 * 1000,
-    isSameSite: false
+    isSameSite: false,
   },
   redirectTo: false,
-  // keepAlive: true,
 }

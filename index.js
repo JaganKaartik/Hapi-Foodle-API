@@ -11,8 +11,8 @@ const init = async () => {
     host: 'localhost',
     port: process.env.PORT || 8888,
     routes: {
-      cors: true
-    }
+      cors: true,
+    },
   })
 
   await server.register(plugs)

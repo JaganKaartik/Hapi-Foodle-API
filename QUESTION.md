@@ -1,1 +1,0 @@
-I am trying to set up Github and Google 

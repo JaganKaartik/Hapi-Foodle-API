@@ -7,9 +7,9 @@ module.exports = [
     options: {
       auth: {
         mode: 'try',
-        strategy: 'github'
+        strategy: 'github',
       },
-      handler: authController
+      handler: authController,
     },
   },
   {
