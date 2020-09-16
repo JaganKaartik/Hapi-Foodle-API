@@ -1,0 +1,7 @@
+media/
+sql/
+.babelrc
+.eslintrc
+.prettierrc
+ngrok
+ProcFile
