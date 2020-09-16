@@ -7,3 +7,4 @@
 ngrok
 .DS_Store
 .env*
+/dist
