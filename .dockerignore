@@ -5,3 +5,9 @@ sql/
 .prettierrc
 ngrok
 ProcFile
+dist/
+README.md
+Dockerfile
+.dockerignore
+.gitignore
+!.env*

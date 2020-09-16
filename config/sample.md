@@ -1,4 +1,0 @@
-Enviornment Variables
-
-.env files
-

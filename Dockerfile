@@ -1,16 +1,18 @@
-FROM node:lastest
+FROM node:latest
 
 WORKDIR /app
 
 COPY package.json ./
 
-RUN npm install
+RUN npm install yarn
 
-COPY ./dist .
+RUN yarn install
+
+COPY . .
 
 EXPOSE 8888
 
 ENV NODE_ENV=development
 
-CMD ["npm","start"]
+CMD ["yarn","dev"]
 
