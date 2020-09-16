@@ -1,23 +1,64 @@
-const sequelize = require('./models/connector')
+const sequelize = require('./models/connector').sequelize
+const Dishes = require('./models/Dishes').Dishes
 
-const SeedA = sequelize.query('ALTER TABLE "Dishes" ADD COLUMN id SERIAL PRIMARY KEY')
-const SeedB = sequelize.query(`insert into "Dishes" values
-    ('Croissant', 'Bread', '$0.50'),
-    ('Baguette', 'Bread', '$2.50'),
-    ('Doughnut', 'Confections', '$1.50'),
-    ('Pain Au Chocolat', 'Bread', '$2.00'),
-    ('Penne Pasta', 'Pasta', '$6.80'),
-    ('French Toast', 'Bread', '$5.00'),
-    ('Penne Arabiata', 'Pasta', '$7.00'),
-    ('Pasta Bologaniase', 'Pasta', '$10.00'),
-    ('Pizza', 'Bread', '$12.00'),
-    ('Crepe', 'Pancake', '$2.50'),
-    ('Macaroons', 'Confections', '$2.50'),
-    ('Macaronni', 'Pasta', '$7.50'),
-    ('Hot Dog', 'Snacks', '$1.50'),
-    ('Baguette', 'Bread', '$3.55')`);
-
-module.exports.SeedFn = async () => {
+const SeedFn = async () => {
+    await Dishes.sync()
     await SeedA
     await SeedB
 }
+
+const SeedA = sequelize.query('ALTER TABLE "Dishes" ADD COLUMN id SERIAL PRIMARY KEY')
+const SeedB = Dishes.bulkCreate([{
+    name: 'French Toast',
+    type: 'Bread',
+    price: '$6.00'
+}, {
+    name: 'Penne Arabiata',
+    type: 'Pasta',
+    price: '$10.00'
+}, {
+    name: 'Pasta Bologaniase',
+    type: 'Pasta',
+    price: '$10.00'
+}, {
+    name: 'Hot Dog',
+    type: 'Snacks',
+    price: '$1:50'
+}, {
+    name: 'Macaronni',
+    type: 'Pasta',
+    price: '$7.50'
+},
+{
+    name: 'Croissant',
+    type: 'bread',
+    price: '$0.50'
+}, {
+    name: 'Baguette',
+    type: 'Bread',
+    price: '$2.50'
+}, {
+    name: 'Doughnut',
+    type: 'Confections',
+    price: '$1.50'
+},
+{
+    name: 'Pain Au Chocolat',
+    type: 'Bread',
+    price: '$2.00'
+},
+{
+    name: 'Macaroons',
+    type: 'Confections',
+    price: '$2.50'
+},
+{
+    name: 'Baguette',
+    type: 'Bread',
+    price: '$2.55'
+}
+]).then(() => {
+    console.log('Seed Data Successfully Inserted')
+}).catch((err) => {
+    console.log(err)
+})

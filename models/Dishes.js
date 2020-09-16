@@ -1,4 +1,5 @@
-const sequelize = require('./connector')
+const Sequelize = require('sequelize')
+const sequelize = require('./connector').sequelize
 
 const Dishes = sequelize.define(
     'Dishes',
@@ -18,5 +19,4 @@ const Dishes = sequelize.define(
     }
 )
 
-Dishes.sync({})
 module.exports.Dishes = Dishes
