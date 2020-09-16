@@ -1,4 +1,4 @@
-const { Dishes } = require('../models')
+const { Dishes } = require('../models/Dishes')
 
 const displayAllDish = async (request, h) => {
   const rep = await Dishes.findAll({
