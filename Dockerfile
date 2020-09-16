@@ -10,7 +10,7 @@ COPY ./dist .
 
 EXPOSE 8888
 
-#Need to set up NODE ENV
+ENV NODE_ENV=development
 
 CMD ["npm","start"]
 
