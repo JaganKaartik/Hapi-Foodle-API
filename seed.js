@@ -1,11 +1,7 @@
-module.exports.SeedFn = async () => {
-    await this.SeedA
-    await this.SeedB
-}
+const sequelize = require('./models/connector')
 
-module.exports.SeedA = sequelize.query('ALTER TABLE "Dishes" ADD COLUMN id SERIAL PRIMARY KEY')
-
-module.exports.SeedB = sequelize.query(`insert into "Dishes" values
+const SeedA = sequelize.query('ALTER TABLE "Dishes" ADD COLUMN id SERIAL PRIMARY KEY')
+const SeedB = sequelize.query(`insert into "Dishes" values
     ('Croissant', 'Bread', '$0.50'),
     ('Baguette', 'Bread', '$2.50'),
     ('Doughnut', 'Confections', '$1.50'),
@@ -20,3 +16,8 @@ module.exports.SeedB = sequelize.query(`insert into "Dishes" values
     ('Macaronni', 'Pasta', '$7.50'),
     ('Hot Dog', 'Snacks', '$1.50'),
     ('Baguette', 'Bread', '$3.55')`);
+
+module.exports.SeedFn = async () => {
+    await SeedA
+    await SeedB
+}
