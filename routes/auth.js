@@ -3,11 +3,11 @@ const { authController } = require('../controllers/auth')
 module.exports = [
   {
     method: 'GET',
-    path: '/auth/github',
+    path: '/auth/twitter',
     options: {
       auth: {
         mode: 'try',
-        strategy: 'github',
+        strategy: 'twitter',
       },
       handler: authController,
     },
@@ -16,7 +16,10 @@ module.exports = [
     method: ['GET', 'POST'],
     path: '/auth/google',
     options: {
-      auth: 'google',
+      auth: {
+        mode: 'try',
+        strategy: 'google',
+      },
       handler: authController,
     },
   },

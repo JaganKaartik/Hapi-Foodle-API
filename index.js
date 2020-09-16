@@ -17,8 +17,8 @@ const init = async () => {
 
   await server.register(plugs)
 
-  server.auth.strategy('github', 'bell', strategy.GithubStrategy)
   server.auth.strategy('google', 'bell', strategy.GoogleStrategy)
+  server.auth.strategy('twitter', 'bell', strategy.TwitterStrategy)
   server.auth.strategy('session', 'cookie', strategy.CookieStrategy)
   server.auth.default('session')
 
