@@ -6,7 +6,7 @@ services:
         dockerfile: Dockerfile
     image: nodejs
     container_name: foodle-docker-demo
-    env_file: /config/.env.dev
+    env_file: .env
     environment:
         NODE_ENV: ${NODE_ENV}
         TWITTER_API_KEY: ${TWITTER_API_KEY}
@@ -15,7 +15,7 @@ services:
         POSTGRES_ID: ${POSTGRES_ID}
         POSTGRES_KEY: ${POSTGRES_KEY}
         COOKIE_PASSWORD: ${COOKIE_PASSWORD} 
-        RANDOM_PASSWORD_STRING: ${RANDOM_PASSWORD_STRING:}
+        RANDOM_PASSWORD_STRING: ${RANDOM_PASSWORD_STRING}
         GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
         GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
     command: yarn run dev
