@@ -1,8 +1,8 @@
-if (process.env.NODE_ENV === 'production') {
-  require('dotenv').config({ path: './config/.env.prod' })
-} else {
-  require('dotenv').config({ path: './config/.env.dev' })
-}
+// if (process.env.NODE_ENV === 'production') {
+//   require('dotenv').config({ path: './config/.env.prod' })
+// } else {
+//   require('dotenv').config({ path: './config/.env.dev' })
+// }
 
 module.exports.GoogleStrategy = {
   provider: 'google',

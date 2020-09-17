@@ -1,6 +1,6 @@
 version: '2'
 services:
-  nodejs:
+    web:
     build:
         context: .
         dockerfile: Dockerfile

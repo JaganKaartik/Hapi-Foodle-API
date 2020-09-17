@@ -9,3 +9,4 @@ ngrok
 .env*
 /dist
 sample.md
+/config/*json
