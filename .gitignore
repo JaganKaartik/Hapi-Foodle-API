@@ -8,3 +8,4 @@ ngrok
 .DS_Store
 .env*
 /dist
+sample.md

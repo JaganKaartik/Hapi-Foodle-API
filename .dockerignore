@@ -10,4 +10,5 @@ README.md
 Dockerfile
 .dockerignore
 .gitignore
-!.env*
+sample.md
+.env.dev
