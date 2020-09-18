@@ -5,6 +5,7 @@ let sequelize
 if (process.env.NODE_ENV === 'production') {
   sequelize = new Sequelize(process.env.PROD_DB_URL)
 } else {
+  // require('dotenv').config()
   sequelize = new Sequelize(
     process.env.DB,
     process.env.POSTGRES_ID,

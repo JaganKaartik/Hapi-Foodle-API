@@ -3,6 +3,16 @@ const { authController } = require('../controllers/auth')
 module.exports = [
   {
     method: 'GET',
+    path: '/',
+    options: {
+      auth: false,
+      handler: (req, res) => {
+        return ('<h1>Welcome to docker app</h1>')
+      }
+    },
+  },
+  {
+    method: 'GET',
     path: '/auth/twitter',
     options: {
       auth: {

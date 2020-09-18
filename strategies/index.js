@@ -4,6 +4,8 @@
 //   require('dotenv').config({ path: './config/.env.dev' })
 // }
 
+// nodrequire('dotenv').config()
+
 module.exports.GoogleStrategy = {
   provider: 'google',
   password: process.env.RANDOM_PASSWORD_STRING,
