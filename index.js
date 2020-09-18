@@ -1,5 +1,5 @@
 'use strict'
-console.log(process.env.NODE_ENV)
+console.log(process.env)
 const Hapi = require('@hapi/hapi')
 const strategy = require('./strategies/')
 const plugs = require('./strategies/plugin')

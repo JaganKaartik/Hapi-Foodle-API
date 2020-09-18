@@ -21,13 +21,13 @@
     "@hapi/hapi": "^20.0.0",
     "bcrypt": "^5.0.0",
     "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
     "hapi-cors": "^1.0.3",
     "hapi-require-https": "^5.0.0",
     "joi": "^17.2.1",
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^6.3.4",
-    "dotenv": "^8.2.0"
+    "sequelize": "^6.3.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
