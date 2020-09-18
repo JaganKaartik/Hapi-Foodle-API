@@ -1,13 +1,15 @@
 version: '2'
 services:
-  nodejs:
+  web:
     build:
         context: .
         dockerfile: Dockerfile
-    image: nodejs
+    image: node
     container_name: foodle-docker-demo
     env_file: .env
     environment:
+        DB_PORT: 5432
+        HOST: host.docker.internal
         NODE_ENV: ${NODE_ENV}
         TWITTER_API_KEY: ${TWITTER_API_KEY}
         TWITTER_CLIENT_SECRET: ${TWITTER_CLIENT_SECRET}
