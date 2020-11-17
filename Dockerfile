@@ -1,18 +1,11 @@
-FROM node:latest
+FROM node:alpine
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package.json yarn.lock ./
 
-RUN npm install yarn
-
-RUN yarn install
+RUN yarn install --pure-lockfile
 
 COPY . .
 
 EXPOSE 8888
-
-ENV NODE_ENV=development
-
-CMD ["yarn","dev"]
-
